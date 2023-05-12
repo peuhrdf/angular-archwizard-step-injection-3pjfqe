@@ -30,7 +30,4 @@ export class TesteComponent implements OnInit {
   public get isDirty(): boolean {
     return this.parentFormGroup.controls.address.dirty;
   }
-  public get teste(): boolean {
-    console.log(this.parentFormGroup.valid);
-  }
 }

@@ -1,16 +1,18 @@
 <aw-wizard>
   <aw-wizard-step stepTitle="Step 1">
-    <app-teste [parentFormGroup]="profileForm"></app-teste>
+    <app-address [parentFormGroup]="profileForm"></app-address>
+
     <button type="button" awNextStep>Next Step</button>
   </aw-wizard-step>
   <aw-wizard-step stepTitle="Step 2" awOptionalStep>
-    <app-address [parentFormGroup]="profileForm"></app-address>
+    <app-teste [parentFormGroup]="profileForm"></app-teste>
+
     <button type="button" awPreviousStep>Go to previous step</button>
     <button type="button" awNextStep>Go to next step</button>
   </aw-wizard-step>
   <aw-wizard-step stepTitle="Step 3">
     <app-teste2 [parentFormGroup]="profileForm"></app-teste2>
     <button type="button" awPreviousStep>Previous Step</button>
-    <button type="button" (click)="finishFunction()">Finish</button>
+    <button type="button" (click)="onSubmit()">Finish</button>
   </aw-wizard-step>
 </aw-wizard>

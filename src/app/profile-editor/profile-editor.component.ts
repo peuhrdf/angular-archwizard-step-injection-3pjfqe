@@ -1,35 +1,38 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-editor',
   templateUrl: './profile-editor.component.html',
-  styleUrls: ['./profile-editor.component.css']
+  styleUrls: ['./profile-editor.component.css'],
 })
 export class ProfileEditorComponent {
-  profileForm = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: [''],
-    aliases: this.fb.array([
-      this.fb.control('')
-    ])
-  });
+  // public fb: FormBuilder;
+  profileForm: FormGroup;
 
   get aliases() {
     return this.profileForm.get('aliases') as FormArray;
   }
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+    // this.fb = new FormBuilder();
+    console.log(this.fb);
 
+    this.profileForm = this.fb.group({
+      firstName: ['2', Validators.required],
+      lastName: [''],
+      aliases: this.fb.array([this.fb.control('')]),
+    });
+  }
 
   updateProfile() {
     this.profileForm.patchValue({
       firstName: 'Nancy',
       address: {
-        street: '123 Drew Street'
-      }
+        street: '123 Drew Street',
+      },
     });
   }
 
@@ -38,7 +41,7 @@ export class ProfileEditorComponent {
   }
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
+    console.log(this.profileForm.valid);
+    console.log(this.profileForm.controls);
   }
 }

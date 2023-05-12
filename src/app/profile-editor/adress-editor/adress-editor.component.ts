@@ -3,8 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-address',
-  templateUrl: './address.component.html',
-  styleUrls: ['./address.component.css'],
+  templateUrl: './adress-editor.component.html',
 })
 export class AddressComponent implements OnInit {
   @Input() parentFormGroup: FormGroup;

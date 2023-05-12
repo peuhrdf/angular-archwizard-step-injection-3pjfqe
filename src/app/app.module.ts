@@ -10,20 +10,14 @@ import {
 import { ArchwizardModule, WizardStep } from 'angular-archwizard';
 import { Teste2Component } from './profile-editor/teste2/teste2.component';
 import { AddressComponent } from './profile-editor/adress-editor/adress-editor.component';
+import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
+import { TesteComponent } from './profile-editor/teste/teste.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
-export class AppComponent {
-  constructor(private fb: FormBuilder) {}
-
-  profileForm = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: [''],
-    aliases: this.fb.array([this.fb.control('')]),
-  });
-}
+export class AppComponent {}
 
 @Component({
   selector: 'app-step',
@@ -50,9 +44,10 @@ export class StepComponent {
   declarations: [
     AppComponent,
     StepComponent,
-    Teste2Component,
+    TesteComponent,
     Teste2Component,
     AddressComponent,
+    ProfileEditorComponent,
   ],
   bootstrap: [AppComponent],
 })
